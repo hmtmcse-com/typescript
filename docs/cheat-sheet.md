@@ -1,15 +1,16 @@
 ## Basic Types
 
-1. **Boolean** :
-2. **Number** :
-3. **String** :
-4. **Any** :
-5. **Tuple** :
-6. **Enum** :
-7. **Null and Undefined** :
-8. **Never** :
-9. **Object** :
-10. **let** :
+1. **Boolean** : The most basic datatype is the simple true/false value
+2. **Number** : As in JavaScript, all numbers in TypeScript are floating point values. These floating point numbers get the type number. In addition to hexadecimal and decimal literals, TypeScript also supports binary and octal literals introduced in ECMAScript 2015.
+3. **String** : The type string to refer to textual datatypes
+4. **Any** : We may need to describe the type of variables that we do not know when we are writing an application
+5. **Enum** : A helpful addition to the standard set of datatypes from JavaScript is the enum.
+6. **Null and Undefined** : In TypeScript, both undefined and null actually have their own types named undefined and null respectively. 
+7. **Never** : The never type represents the type of values that never occur. For instance, never is the return type for a function expression or an arrow function expression that always throws an exception or one that never returns; Variables also acquire the type never when narrowed by any type guards that can never be true.
+8. **Object** : object is a type that represents the non-primitive type, i.e. anything that is not number, string, boolean, symbol, null, or undefined.
+9.  **Array** : Set of same types of variables.
+10. **Tuple** : Tuple types allow you to express an array where the type of a fixed number of elements is known
+11. **Void** : There is not retur value
 
 **Example:**
 ```
@@ -82,4 +83,40 @@ function infiniteLoop(): never {
     while (true) {
     }
 }
+
+
+// Object
+declare function create(o: object | null): void;
+
+create({ prop: 0 }); // OK
+create(null); // OK
+
+create(42); // Error
+create("string"); // Error
+create(false); // Error
+create(undefined); // Error
+
+
+
+// Void
+function warnUser(): void {
+    console.log("This is my warning message");
+}
+
+
+// Tuple
+// Declare a tuple type
+let x: [string, number];
+// Initialize it
+x = ["hello", 10]; // OK
+// Initialize it incorrectly
+x = [10, "hello"]; // Error
+
+
+// Array
+// Basic Way
+let array: number[] = [1, 2, 3];
+
+// Type Defined way
+let list: Array<number> = [1, 2, 3];
 ```

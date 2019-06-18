@@ -67,3 +67,39 @@ function infiniteLoop(): never {
     while (true) {
     }
 }
+
+
+// Object
+declare function create(o: object | null): void;
+
+create({ prop: 0 }); // OK
+create(null); // OK
+
+create(42); // Error
+create("string"); // Error
+create(false); // Error
+create(undefined); // Error
+
+
+
+// Void
+function warnUser(): void {
+    console.log("This is my warning message");
+}
+
+
+// Tuple
+// Declare a tuple type
+let x: [string, number];
+// Initialize it
+x = ["hello", 10]; // OK
+// Initialize it incorrectly
+x = [10, "hello"]; // Error
+
+
+// Array
+// Basic Way
+let array: number[] = [1, 2, 3];
+
+// Type Defined way
+let list: Array<number> = [1, 2, 3];
