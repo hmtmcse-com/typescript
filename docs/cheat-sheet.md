@@ -1,3 +1,7 @@
+## References
+1. https://www.typescriptlang.org/docs/handbook/basic-types.html
+
+
 ## Basic Types
 
 1. **Boolean** : The most basic datatype is the simple true/false value
@@ -119,4 +123,47 @@ let array: number[] = [1, 2, 3];
 
 // Type Defined way
 let list: Array<number> = [1, 2, 3];
+```
+
+
+
+## Classes
+
+```
+class Animal {
+    name: string;
+    constructor(theName: string) { this.name = theName; }
+
+    public move(distanceInMeters: number = 0) {
+        console.log(`${this.name} moved ${distanceInMeters}m.`);
+    }
+
+}
+
+class Snake extends Animal {
+
+    constructor(name: string) { super(name); }
+
+    move(distanceInMeters = 5) {
+        console.log("Slithering...");
+        super.move(distanceInMeters);
+    }
+
+}
+
+class Horse extends Animal {
+
+    constructor(name: string) { super(name); }
+
+    move(distanceInMeters = 45) {
+        console.log("Galloping...");
+        super.move(distanceInMeters);
+    }
+}
+
+let sam = new Snake("Sammy the Python");
+let tom: Animal = new Horse("Tommy the Palomino");
+
+sam.move();
+tom.move(34);
 ```
