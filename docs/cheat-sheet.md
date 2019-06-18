@@ -17,6 +17,7 @@
 11. **Void** : There is not retur value
 
 **Example:**
+
 ```
 // Boolean
 let isDone: boolean = false;
